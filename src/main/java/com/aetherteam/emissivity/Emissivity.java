@@ -50,7 +50,7 @@ public class Emissivity {
     }
 
     public void packSetup(AddPackFindersEvent event) {
-        // Resource Packs
+        // Data Packs
         this.setupRecipeOverridePack(event);
     }
 

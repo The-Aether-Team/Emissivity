@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:item/bow",
+  "loader": "forge:item_layers",
+  "overrides": [
+    {
+      "model": "aether:item/phoenix_bow_pulling_0",
+      "predicate": {
+        "minecraft:pulling": 1.0
+      }
+    },
+    {
+      "model": "aether:item/phoenix_bow_pulling_1",
+      "predicate": {
+        "minecraft:pull": 0.65,
+        "minecraft:pulling": 1.0
+      }
+    },
+    {
+      "model": "aether:item/phoenix_bow_pulling_2",
+      "predicate": {
+        "minecraft:pull": 0.9,
+        "minecraft:pulling": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "aether_emissivity:item/weapons/phoenix_bow",
+    "layer1": "aether_emissivity:item/weapons/phoenix_bow_overlay"
+  },
+  "forge_data": {
+    "layers": {
+      "1": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  }
+}

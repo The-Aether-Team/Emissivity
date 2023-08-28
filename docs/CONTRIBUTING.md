@@ -1,10 +1,10 @@
-# Contributing to Example Mod
+# Contributing to Emissivity
 ## Getting started for programmers
 1. Install the latest 64-bit version of OpenJDK 17. Check out [Adoptium](https://adoptium.net/) for the relevant JDK build for your OS.
 
 2. Install the latest 64-bit version of Git, which can be found on the [Git website](https://git-scm.com/).
 
-3. Fork Example Mod repository with the [fork](https://github.com/The-Aether-Team/Example-Mod/fork) button in the top right of GitHub.
+3. Fork Emissivity's repository with the [fork](https://github.com/The-Aether-Team/Emissivity/fork) button in the top right of GitHub.
 
 4. We recommend to use [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/) for contributions. Other IDEs may work but any issues or roadblocks will not receive support.
 
@@ -26,19 +26,19 @@
 
 10. Start developing!
 
-If you have any questions or issues, or would just like to discuss Example Mod development, feel free to [join us on Discord](https://discord.gg/aethermod).
+If you have any questions or issues, or would just like to discuss Emissivity's development, feel free to [join us on Discord](https://discord.gg/aethermod).
 
 ## Writing commits
 If you are looking to commit to your fork and don't know how, make sure to read up on your relevant Git tutorial.
 
-Once you're ready to commit, there are some things to know about our commit styling. Example Mod makes uses of conventional commits. To understand this, we recommend you read up on [Semantic Versioning](https://github.com/The-Aether-Team/.github/blob/main/references/VERSIONING.md) first, and then our [Conventional Commit](https://github.com/The-Aether-Team/.github/blob/main/references/COMMITS.md) standards.
+Once you're ready to commit, there are some things to know about our commit styling. Emissivity makes uses of conventional commits. To understand this, we recommend you read up on [Semantic Versioning](https://github.com/The-Aether-Team/.github/blob/main/references/VERSIONING.md) first, and then our [Conventional Commit](https://github.com/The-Aether-Team/.github/blob/main/references/COMMITS.md) standards.
 
-It is important to use conventional commits because Example Mod's workflow depends on them for code review and changelogs. Not using it makes management of contributions more difficult.
+It is important to use conventional commits because Emissivity's workflow depends on them for code review and changelogs. Not using it makes management of contributions more difficult.
 
 It is also important to understand semantic versioning as we recommend avoiding breaking changes, and also avoiding anything that could lead to future breaking changes being made.
 
 ## Creating pull requests
-To open a pull request, go to the [pull requests page](https://github.com/The-Aether-Team/Example-Mod/pulls), and an indicator should show up on the page to create a PR from a recent commit to a fork.
+To open a pull request, go to the [pull requests page](https://github.com/The-Aether-Team/Emissivity/pulls), and an indicator should show up on the page to create a PR from a recent commit to a fork.
 
 When creating a PR:
 - Make sure your code conforms to the project's documentation and code styling.

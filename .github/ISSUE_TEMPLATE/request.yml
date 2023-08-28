@@ -1,5 +1,5 @@
 name: '✨ Feature Request'
-description: Create an issue about an idea that you would like to see in Example Mod
+description: Create an issue about an idea that you would like to see in Emissivity
 labels: [ "type/request" ]
 title: 'Feature Request: <title>'
 body:
@@ -36,7 +36,7 @@ body:
     attributes:
       label: Is This an Enhancement to a Preexisting Feature?
       options:
-        - label: I confirm this request is an enhancement to a feature already in Example Mod.
+        - label: I confirm this request is an enhancement to a feature already in Emissivity.
           required: false
   - type: textarea
     id: request
@@ -55,7 +55,7 @@ body:
     id: mod-compat
     attributes:
       label: Does This Feature Improve Compatibility With Another Mod?
-      description: If this feature would create a better experience between Example Mod and another mod, please put the name and version of the mod here. Leave blank otherwise.
+      description: If this feature would create a better experience between Emissivity and another mod, please put the name and version of the mod here. Leave blank otherwise.
     validations:
       required: false
   - type: checkboxes

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.aetherteam.emissivity.mixin.mixins",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "aether_emissivity.refmap.json",
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "client.GlovesRendererMixin",
+    "client.HumanoidArmorLayerMixin"
+  ]
+}

@@ -48,10 +48,10 @@ body:
     validations:
       required: true
   - type: input
-    id: example-mod-ver
+    id: emissivity-ver
     attributes:
-      label: Example Mod Version
-      description: What version of Example Mod are you running? This can be found on the jar file you have downloaded or the Mod Options menu. Please note "latest" is NOT a version.
+      label: Emissivity Version
+      description: What version of Emissivity are you running? This can be found on the jar file you have downloaded or the Mod Options menu. Please note "latest" is NOT a version.
       placeholder: "1.1.1"
     validations:
       required: true

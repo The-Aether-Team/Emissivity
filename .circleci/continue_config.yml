@@ -3,11 +3,6 @@ version: 2.1
 orbs:
   gradle: circleci/gradle@3.0.0
 
-parameters:
-  artifact-name:
-    type: string
-    default: examplemod-1.19.4-1.0.0-forge.jar
-
 jobs:
   build:
     machine:

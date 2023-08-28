@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "loader": "forge:item_layers",
+  "textures": {
+    "layer0": "aether:item/miscellaneous/aether_portal_frame",
+    "layer1": "aether:item/miscellaneous/aether_portal_frame_inside"
+  },
+  "forge_data": {
+    "layers": {
+      "0": {
+        "block_light": 15,
+        "sky_light": 15
+      },
+      "1": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  }
+}

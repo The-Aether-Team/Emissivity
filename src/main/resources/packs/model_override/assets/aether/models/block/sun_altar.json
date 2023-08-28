@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "render_type": "cutout",
+  "textures": {
+    "bottom": "aether:block/dungeon/hellfire_stone",
+    "side": "aether:block/utility/sun_altar_side",
+    "top": "aether:block/utility/sun_altar_top",
+    "overlay": "aether_emissivity:block/utility/sun_altar_top_overlay"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+          "down":  { "texture": "#down", "cullface": "down" },
+          "up":    { "texture": "#up", "cullface": "up" },
+          "north": { "texture": "#north", "cullface": "north" },
+          "south": { "texture": "#south", "cullface": "south" },
+          "west":  { "texture": "#west", "cullface": "west" },
+          "east":  { "texture": "#east", "cullface": "east" }
+      }
+    },
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "up":    { "texture": "#overlay", "cullface": "up" }
+      },
+      "forge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  ]
+}

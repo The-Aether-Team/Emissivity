@@ -16,7 +16,9 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.resource.PathPackResources;
 import org.slf4j.Logger;
@@ -33,6 +35,7 @@ public class Emissivity {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::dataSetup);
         modEventBus.addListener(this::packSetup);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, EmissivityConfig.CLIENT_SPEC);
     }
 
     public void dataSetup(GatherDataEvent event) {

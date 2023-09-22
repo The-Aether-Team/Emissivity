@@ -2,6 +2,7 @@ package com.aetherteam.emissivity.client.renderer.player.layer;
 
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.emissivity.Emissivity;
+import com.aetherteam.emissivity.EmissivityConfig;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.LightTexture;
@@ -24,14 +25,14 @@ public class EmissiveArmorLayer<T extends LivingEntity, M extends HumanoidModel<
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T livingEntity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (livingEntity.getItemBySlot(EquipmentSlot.FEET).is(AetherItems.SENTRY_BOOTS.get())) {
+        if (livingEntity.getItemBySlot(EquipmentSlot.FEET).is(AetherItems.SENTRY_BOOTS.get()) && EmissivityConfig.CLIENT.emissive_sentry_boots.get()) {
             this.renderArmorPiece(poseStack, buffer, livingEntity, EquipmentSlot.FEET, LightTexture.pack(15, 15), this.getArmorModel(EquipmentSlot.FEET));
         }
     }
 
     @Override
     public ResourceLocation getArmorResource(Entity entity, ItemStack stack, EquipmentSlot slot, @Nullable String type) {
-        if (stack.is(AetherItems.SENTRY_BOOTS.get())) {
+        if (stack.is(AetherItems.SENTRY_BOOTS.get()) && EmissivityConfig.CLIENT.emissive_sentry_boots.get()) {
             return new ResourceLocation(Emissivity.MODID, "textures/models/armor/sentry_layer_1_overlay.png");
         }
         return new ResourceLocation("");

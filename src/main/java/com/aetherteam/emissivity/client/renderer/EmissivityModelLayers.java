@@ -9,6 +9,8 @@ public class EmissivityModelLayers {
     public static final ModelLayerLocation PLAYER_OUTER_ARMOR_EMISSIVE = registerOuterArmor("player");
     public static final ModelLayerLocation PLAYER_SLIM_INNER_ARMOR_EMISSIVE = registerInnerArmor("player_slim");
     public static final ModelLayerLocation PLAYER_SLIM_OUTER_ARMOR_EMISSIVE = registerOuterArmor("player_slim");
+    public static final ModelLayerLocation ENTITY_INNER_ARMOR_EMISSIVE = registerInnerArmor("entity");
+    public static final ModelLayerLocation ENTITY_OUTER_ARMOR_EMISSIVE = registerOuterArmor("entity");
 
     private static ModelLayerLocation registerInnerArmor(String path) {
         return register(path, "inner_armor_emissive");

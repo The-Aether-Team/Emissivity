@@ -17,7 +17,7 @@ description = '''Adds various emissive textures for the Aether's content.'''
 [[dependencies.aether_emissivity]]
     modId = "forge"
     mandatory = true
-    versionRange = "[4.15.0,)"
+    versionRange = "[45.1.0,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_emissivity]]

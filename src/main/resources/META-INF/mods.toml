@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[45,)"
+loaderVersion = "[47,)"
 license = "Assets: All Rights Reserved; Code: LGPL-3.0"
 issueTrackerURL = "https://github.com/The-Aether-Team/Emissivity/issues"
 
@@ -7,7 +7,7 @@ issueTrackerURL = "https://github.com/The-Aether-Team/Emissivity/issues"
 modId = "aether_emissivity"
 version = "${file.jarVersion}"
 displayName = "Emissivity"
-updateJSONURL = "https://github.com/The-Aether-Team/Emissivity/raw/1.19.4-develop/update.json"
+updateJSONURL = "https://github.com/The-Aether-Team/Emissivity/raw/1.20.1-develop/update.json"
 displayURL = "https://modrinth.com/mod/aether-emissivity"
 logoFile = "emissivity_icon.png"
 credits = "The Aether Team"
@@ -17,18 +17,18 @@ description = '''Adds various emissive textures for the Aether's content.'''
 [[dependencies.aether_emissivity]]
     modId = "forge"
     mandatory = true
-    versionRange = "[4.15.0,)"
+    versionRange = "[47.1.0,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_emissivity]]
     modId = "aether"
     mandatory = true
-    versionRange = "[1.19.4-1.0.0-beta.5.1-forge,)"
+    versionRange = "[1.20.1-1.0.0-beta.1.2-neoforge,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_emissivity]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.19.4]"
+    versionRange = "[1.20.1]"
     ordering = "NONE"
     side = "BOTH"

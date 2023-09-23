@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -46,8 +47,8 @@ public class ShieldOfRepulsionRendererMixin<T extends LivingEntity, M extends En
     @Unique
     private static final ResourceLocation SHIELD_OF_REPULSION_SLIM_INACTIVE_OVERLAY = new ResourceLocation(Emissivity.MODID, "textures/models/accessory/shield_of_repulsion/shield_of_repulsion_slim_inactive_accessory_overlay.png");
 
-    @Inject(method = "lambda$render$0(Ltop/theillusivec4/curios/api/SlotResult;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/client/renderer/entity/RenderLayerParent;Ltop/theillusivec4/curios/api/SlotContext;Lnet/minecraft/client/renderer/MultiBufferSource;Lcom/mojang/blaze3d/vertex/PoseStack;ILtop/theillusivec4/curios/api/type/inventory/ICurioStacksHandler;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/HumanoidModel;renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V"), cancellable = true)
-    private void render(SlotResult slotResult, LivingEntity livingEntity, RenderLayerParent<T, M> renderLayerParent, SlotContext slotContext, MultiBufferSource buffer, PoseStack poseStack, int light, ICurioStacksHandler stacksHandler, CallbackInfo ci, @Local ShieldOfRepulsionItem shield, @Local ResourceLocation texture, @Local HumanoidModel<T> model) {
+    @Inject(method = "render(Lnet/minecraft/world/item/ItemStack;Ltop/theillusivec4/curios/api/SlotContext;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/entity/RenderLayerParent;Lnet/minecraft/client/renderer/MultiBufferSource;IFFFFFF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/HumanoidModel;renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V"), cancellable = true)
+    private void render(ItemStack stack, SlotContext slotContext, PoseStack poseStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource buffer, int combinedLight, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci, @Local ShieldOfRepulsionItem shield, @Local ResourceLocation texture, @Local HumanoidModel<T> model) {
         if (EmissivityConfig.CLIENT.emissive_shield_of_repulsion.get()) {
             ResourceLocation baseTexture = null;
             ResourceLocation overlayTexture = null;
@@ -66,7 +67,7 @@ public class ShieldOfRepulsionRendererMixin<T extends LivingEntity, M extends En
             }
             if (baseTexture != null) {
                 VertexConsumer baseConsumer = ItemRenderer.getArmorFoilBuffer(buffer, RenderType.entityTranslucent(baseTexture), false, false);
-                model.renderToBuffer(poseStack, baseConsumer, light, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+                model.renderToBuffer(poseStack, baseConsumer, combinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
                 VertexConsumer overlayConsumer = ItemRenderer.getArmorFoilBuffer(buffer, RenderType.entityTranslucent(overlayTexture), false, false);
                 model.renderToBuffer(poseStack, overlayConsumer, LightTexture.pack(15, 15), OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
                 ci.cancel();

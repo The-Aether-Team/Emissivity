@@ -28,7 +28,7 @@ If you're interested in sponsoring Emissivity or The Aether Team, please [contac
 [![Modloader: Forge](https://img.shields.io/badge/mod%20loader-forge-CC974D?style=flat-square)](https://files.minecraftforge.net/net/minecraftforge/forge/)
 [![CircleCI](https://circleci.com/gh/The-Aether-Team/Emissivity/tree/1.19.4-develop.svg?style=shield)](https://app.circleci.com/pipelines/github/The-Aether-Team/Emissivity?branch=1.19.4-develop)
 ### Release builds
-Emissivity has no stable release builds for the latest version of Minecraft just yet, but this mod is in active development so keep an eye out for its eventual release.
+Emissivity has stable release builds available on [Modrinth](https://modrinth.com/mod/aether-emissivity) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/aether-emissivity).
 
 ### Bleeding edge builds
 If you’re feeling a bit more adventurous or wish to help test the in-development versions, we provide **bleeding edge builds** which are produced on [CircleCI](https://app.circleci.com/pipelines/github/The-Aether-Team/Emissivity). These builds are created for every new commit and contain the latest available code. We do not recommend users treat these builds as releases, as they are unfinished and may contain serious issues. If you wish to download these builds, check out [this guide](https://github.com/The-Aether-Team/The-Aether/wiki/CircleCI-Guide).

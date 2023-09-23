@@ -26,6 +26,10 @@ If you're interested in sponsoring Emissivity or The Aether Team, please [contac
 
 ## :package: Download the latest releases
 [![Modloader: Forge](https://img.shields.io/badge/mod%20loader-forge-CC974D?style=flat-square)](https://files.minecraftforge.net/net/minecraftforge/forge/)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/sKHHynnb?color=00AF5C&logo=modrinth)](https://modrinth.com/mod/aether-emissivity)
+[![Modrinth Version](https://img.shields.io/modrinth/game-versions/sKHHynnb?color=00AF5C&label=latest&logo=modrinth&last=true)](https://modrinth.com/mod/aether-emissivity)
+[![CurseForge Downloads](http://cf.way2muchnoise.eu/916028.svg)](https://www.curseforge.com/minecraft/mc-mods/aether-emissivity)
+[![CurseForge Version](http://cf.way2muchnoise.eu/versions/916028_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/aether-emissivity)
 [![CircleCI](https://circleci.com/gh/The-Aether-Team/Emissivity/tree/1.19.4-develop.svg?style=shield)](https://app.circleci.com/pipelines/github/The-Aether-Team/Emissivity?branch=1.19.4-develop)
 ### Release builds
 Emissivity has stable release builds available on [Modrinth](https://modrinth.com/mod/aether-emissivity) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/aether-emissivity).

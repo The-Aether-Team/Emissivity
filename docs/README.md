@@ -1,6 +1,8 @@
 # Emissivity
 
-TBA
+The Emissivity addon applies **emissive textures to various items, blocks, and equipment** found in the Aether mod. This means that these textures will appear bright regardless of the light level when they are in the world.
+
+These changes apply to things made from **Ambrosium, Phoenix equipment, dungeon stone runes, and even the Shield of Repulsion**. All items and blocks have emissive textures handled through the mod's data pack files, while emissive equipment is toggleable within the mod's config options.
 
 ## :heart: Support The Aether Team
 

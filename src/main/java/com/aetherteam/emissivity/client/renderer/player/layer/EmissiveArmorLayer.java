@@ -3,6 +3,7 @@ package com.aetherteam.emissivity.client.renderer.player.layer;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.emissivity.Emissivity;
 import com.aetherteam.emissivity.EmissivityConfig;
+import com.aetherteam.emissivity.mixin.mixins.client.accessor.HumanoidArmorLayerAccessor;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.LightTexture;
@@ -26,7 +27,7 @@ public class EmissiveArmorLayer<T extends LivingEntity, M extends HumanoidModel<
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T livingEntity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (livingEntity.getItemBySlot(EquipmentSlot.FEET).is(AetherItems.SENTRY_BOOTS.get()) && EmissivityConfig.CLIENT.emissive_sentry_boots.get()) {
-            this.renderArmorPiece(poseStack, buffer, livingEntity, EquipmentSlot.FEET, LightTexture.pack(15, 15), this.getArmorModel(EquipmentSlot.FEET));
+            ((HumanoidArmorLayerAccessor<T, M, A>) this).callRenderArmorPiece(poseStack, buffer, livingEntity, EquipmentSlot.FEET, LightTexture.pack(15, 15), ((HumanoidArmorLayerAccessor<T, M, A>) this).callGetArmorModel(EquipmentSlot.FEET));
         }
     }
 

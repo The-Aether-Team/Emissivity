@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:item/handheld",
-  "loader": "forge:item_layers",
+  "loader": "neoforge:item_layers",
   "textures": {
     "layer0": "aether:item/weapons/hammer_of_jeb",
     "layer1": "aether_emissivity:item/weapons/hammer_of_jeb_overlay"
   },
-  "forge_data": {
+  "neoforge_data": {
     "layers": {
       "1": {
         "block_light": 15,

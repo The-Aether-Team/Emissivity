@@ -8,22 +8,24 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackCompatibility;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.resource.PathPackResources;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.event.AddPackFindersEvent;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Map;
 
 @Mod(Emissivity.MODID)
@@ -31,10 +33,9 @@ public class Emissivity {
     public static final String MODID = "aether_emissivity";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public Emissivity() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::dataSetup);
-        modEventBus.addListener(this::packSetup);
+    public Emissivity(IEventBus bus, Dist dist) {
+        bus.addListener(this::dataSetup);
+        bus.addListener(this::packSetup);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, EmissivityConfig.CLIENT_SPEC);
     }
 
@@ -60,16 +61,14 @@ public class Emissivity {
     private void setupRecipeOverridePack(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             Path resourcePath = ModList.get().getModFileById(Emissivity.MODID).getFile().findResource("packs/model_override");
-            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(Emissivity.MODID).getFile().getFileName() + ":" + resourcePath, true, resourcePath);
             PackMetadataSection metadata = new PackMetadataSection(Component.literal(""), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
             event.addRepositorySource((source) ->
                 source.accept(Pack.create(
                     "builtin/emissivity_model_override",
                     Component.literal(""),
                     true,
-                    (string) -> pack,
-                    new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(), true),
-                    PackType.SERVER_DATA,
+                    new PathPackResources.PathResourcesSupplier(resourcePath, true),
+                    new Pack.Info(metadata.description(), metadata.packFormat(PackType.SERVER_DATA), metadata.packFormat(PackType.CLIENT_RESOURCES), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), true),
                     Pack.Position.TOP,
                     false,
                     PackSource.BUILT_IN)

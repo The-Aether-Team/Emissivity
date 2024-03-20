@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_emissivity.refmap.json",
   "mixins": [
+    "client.accessor.HumanoidArmorLayerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

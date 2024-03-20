@@ -1,4 +1,3 @@
-# Emissivity - Forge - 1.19.4-1.0.0
+# Emissivity - NeoForge - 1.0.0-1.20.2
 
-Additions
-
+- Port to 1.20.2

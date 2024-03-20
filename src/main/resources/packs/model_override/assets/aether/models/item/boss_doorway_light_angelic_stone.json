@@ -162,7 +162,7 @@
           "texture": "#face_overlay"
         }
       },
-      "forge_data": {
+      "neoforge_data": {
         "block_light": 15,
         "sky_light": 15
       },
@@ -180,7 +180,7 @@
     {
       "faces": {
         "north": {
-          "forge_data": {
+          "neoforge_data": {
             "block_light": 15,
             "sky_light": 15
           },

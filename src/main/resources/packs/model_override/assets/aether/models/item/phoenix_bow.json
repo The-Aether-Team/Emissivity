@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/bow",
-  "loader": "forge:item_layers",
+  "loader": "neoforge:item_layers",
   "overrides": [
     {
       "model": "aether:item/phoenix_bow_pulling_0",
@@ -27,7 +27,7 @@
     "layer0": "aether_emissivity:item/weapons/phoenix_bow",
     "layer1": "aether_emissivity:item/weapons/phoenix_bow_overlay"
   },
-  "forge_data": {
+  "neoforge_data": {
     "layers": {
       "1": {
         "block_light": 15,

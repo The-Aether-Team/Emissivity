@@ -9,14 +9,16 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 import java.util.List;
+import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = Emissivity.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EmissivityRenderers {
@@ -35,14 +37,14 @@ public class EmissivityRenderers {
     @SubscribeEvent
     public static void addPlayerLayers(EntityRenderersEvent.AddLayers event) {
         EntityModelSet entityModelSet = event.getEntityModels();
-        String[] types = new String[]{"default", "slim"};
-        for (String type : types) {
+        Set<PlayerSkin.Model> types = event.getSkins();
+        for (PlayerSkin.Model type : types) {
             PlayerRenderer playerRenderer = event.getSkin(type);
             if (playerRenderer != null) {
                 playerRenderer.addLayer(new EmissiveArmorLayer<>(
                         playerRenderer,
-                        new HumanoidArmorModel<>(entityModelSet.bakeLayer(type.equals("slim") ? EmissivityModelLayers.PLAYER_SLIM_INNER_ARMOR_EMISSIVE : EmissivityModelLayers.PLAYER_INNER_ARMOR_EMISSIVE)),
-                        new HumanoidArmorModel<>(entityModelSet.bakeLayer(type.equals("slim") ? EmissivityModelLayers.PLAYER_SLIM_OUTER_ARMOR_EMISSIVE : EmissivityModelLayers.PLAYER_OUTER_ARMOR_EMISSIVE)),
+                        new HumanoidArmorModel<>(entityModelSet.bakeLayer(type == PlayerSkin.Model.SLIM ? EmissivityModelLayers.PLAYER_SLIM_INNER_ARMOR_EMISSIVE : EmissivityModelLayers.PLAYER_INNER_ARMOR_EMISSIVE)),
+                        new HumanoidArmorModel<>(entityModelSet.bakeLayer(type == PlayerSkin.Model.SLIM ? EmissivityModelLayers.PLAYER_SLIM_OUTER_ARMOR_EMISSIVE : EmissivityModelLayers.PLAYER_OUTER_ARMOR_EMISSIVE)),
                         Minecraft.getInstance().getModelManager()));
             }
         }

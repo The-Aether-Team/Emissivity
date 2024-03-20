@@ -1,15 +1,15 @@
 package com.aetherteam.emissivity;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class EmissivityConfig {
     public static class Client {
-        public final ForgeConfigSpec.ConfigValue<Boolean> emissive_sentry_boots;
-        public final ForgeConfigSpec.ConfigValue<Boolean> emissive_phoenix_armor;
-        public final ForgeConfigSpec.ConfigValue<Boolean> emissive_shield_of_repulsion;
+        public final ModConfigSpec.ConfigValue<Boolean> emissive_sentry_boots;
+        public final ModConfigSpec.ConfigValue<Boolean> emissive_phoenix_armor;
+        public final ModConfigSpec.ConfigValue<Boolean> emissive_shield_of_repulsion;
 
-        public Client(ForgeConfigSpec.Builder builder) {
+        public Client(ModConfigSpec.Builder builder) {
             builder.push("Emissives");
             emissive_sentry_boots = builder
                     .comment("Enables emissivity for Sentry Boots")
@@ -27,11 +27,11 @@ public class EmissivityConfig {
         }
     }
 
-    public static final ForgeConfigSpec CLIENT_SPEC;
+    public static final ModConfigSpec CLIENT_SPEC;
     public static final Client CLIENT;
 
     static {
-        final Pair<Client, ForgeConfigSpec> clientSpecPair = new ForgeConfigSpec.Builder().configure(Client::new);
+        final Pair<Client, ModConfigSpec> clientSpecPair = new ModConfigSpec.Builder().configure(Client::new);
         CLIENT_SPEC = clientSpecPair.getRight();
         CLIENT = clientSpecPair.getLeft();
     }

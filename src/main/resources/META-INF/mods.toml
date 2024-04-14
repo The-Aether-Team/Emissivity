@@ -7,7 +7,7 @@ issueTrackerURL = "https://github.com/The-Aether-Team/Emissivity/issues"
 modId = "aether_emissivity"
 version = "${file.jarVersion}"
 displayName = "Emissivity"
-updateJSONURL = "https://github.com/The-Aether-Team/Emissivity/raw/1.20.2-develop/update.json"
+updateJSONURL = "https://github.com/The-Aether-Team/Emissivity/raw/1.20.4-develop/update.json"
 displayURL = "https://modrinth.com/mod/aether-emissivity"
 logoFile = "emissivity_icon.png"
 credits = "The Aether Team"
@@ -16,20 +16,20 @@ description = '''Adds various emissive textures for the Aether's content.'''
 
 [[dependencies.aether_emissivity]]
     modId="neoforge"
-    mandatory=true
-    versionRange="[20.2.0,)"
+    type = "required"
+    versionRange="[20.4.167,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_emissivity]]
     modId = "aether"
-    mandatory = true
-    versionRange = "[1.20.1-1.0.0-beta.1.2-neoforge,)"
+    type = "required"
+    versionRange = "[1.20.4-1.4.0-neoforge,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_emissivity]]
     modId = "minecraft"
-    mandatory = true
-    versionRange="[1.20.2,1.20.3)"
+    type = "required"
+    versionRange="[1.20.4]"
     ordering = "NONE"
     side = "BOTH"
 

@@ -13,15 +13,15 @@ public class EmissivityConfig {
             builder.push("Emissives");
             emissive_sentry_boots = builder
                     .comment("Enables emissivity for Sentry Boots")
-                    .translation("config.emissivity.client.emissives.emissive_sentry_boots")
+                    .translation("config.aether_emissivity.client.emissives.emissive_sentry_boots")
                     .define("Sentry Boots emissivity", true);
             emissive_phoenix_armor = builder
                     .comment("Enables emissivity for Phoenix Armor")
-                    .translation("config.emissivity.client.emissives.emissive_phoenix_armor")
+                    .translation("config.aether_emissivity.client.emissives.emissive_phoenix_armor")
                     .define("Phoenix Armor emissivity", true);
             emissive_shield_of_repulsion = builder
                     .comment("Enables emissivity for the Shield of Repulsion")
-                    .translation("config.emissivity.client.emissives.emissive_shield_of_repulsion")
+                    .translation("config.aether_emissivity.client.emissives.emissive_shield_of_repulsion")
                     .define("Shield of Repulsion emissivity", true);
             builder.pop();
         }

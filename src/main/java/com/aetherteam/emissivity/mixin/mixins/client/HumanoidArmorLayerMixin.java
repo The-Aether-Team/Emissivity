@@ -1,30 +1,29 @@
 package com.aetherteam.emissivity.mixin.mixins.client;
 
+import com.aetherteam.emissivity.Emissivity;
 import com.aetherteam.emissivity.EmissivityConfig;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ArmorItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(HumanoidArmorLayer.class)
 public class HumanoidArmorLayerMixin {
-    @Inject(method = "renderModel(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/item/ArmorItem;Lnet/minecraft/client/model/Model;ZFFFLnet/minecraft/resources/ResourceLocation;)V", at = @At("HEAD"), cancellable = true, remap = false)
-    private void renderModel(PoseStack poseStack, MultiBufferSource buffer, int packedLight, ArmorItem armorItem, Model model, boolean withGlint, float red, float green, float blue, ResourceLocation armorResource, CallbackInfo ci) {
-        if (armorResource.toString().contains("phoenix_layer") && EmissivityConfig.CLIENT.emissive_phoenix_armor.get()) {
-            VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(buffer, RenderType.armorCutoutNoCull(armorResource), false, withGlint);
-            model.renderToBuffer(poseStack, vertexconsumer, LightTexture.pack(15, 15), OverlayTexture.NO_OVERLAY, red, green, blue, 1.0F);
-            ci.cancel();
+    @WrapOperation(method = "renderArmorPiece(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;ILnet/minecraft/client/model/HumanoidModel;FFFFFF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/layers/HumanoidArmorLayer;renderModel(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/model/Model;ILnet/minecraft/resources/ResourceLocation;)V"))
+    private void render(HumanoidArmorLayer<?, ?, ?> instance, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, Model model, int color, ResourceLocation texture, Operation<Void> original) {
+        if (texture.toString().contains("phoenix_layer") && EmissivityConfig.CLIENT.emissive_phoenix_armor.get()) {
+            original.call(instance, poseStack, bufferSource, LightTexture.pack(15, 15), model, color, texture);
+        } else if (texture.toString().contains("sentry_layer_1") && EmissivityConfig.CLIENT.emissive_sentry_boots.get()) {
+            original.call(instance, poseStack, bufferSource, packedLight, model, color, texture);
+            original.call(instance, poseStack, bufferSource, LightTexture.pack(15, 15), model, color, ResourceLocation.fromNamespaceAndPath(Emissivity.MODID, "textures/models/armor/sentry_layer_1_overlay.png"));
+        } else {
+            original.call(instance, poseStack, bufferSource, packedLight, model, color, texture);
         }
     }
 }

@@ -20,11 +20,10 @@ build
 # other
 eclipse
 run
+runs
+runs/client
+runs/client/options.txt
 __pycache__
 logs
-
-# Files from Forge MDK
-forge*changelog.txt
-.vscode/
-/Users/
-src/generated/resources/.cache/cache
+src/generated/resources/.cache
+libs

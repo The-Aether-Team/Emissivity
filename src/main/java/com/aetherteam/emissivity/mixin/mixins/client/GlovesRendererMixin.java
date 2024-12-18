@@ -4,38 +4,36 @@ import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.model.GlovesModel;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.emissivity.EmissivityConfig;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.LightTexture;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.RenderLayerParent;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import top.theillusivec4.curios.api.SlotContext;
 
 @Mixin(GlovesRenderer.class)
 public class GlovesRendererMixin<T extends LivingEntity, M extends HumanoidModel<T>, A extends HumanoidModel<T>> {
-    @Inject(method = "render(Lnet/minecraft/world/item/ItemStack;Ltop/theillusivec4/curios/api/SlotContext;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/entity/RenderLayerParent;Lnet/minecraft/client/renderer/MultiBufferSource;IFFFFFF)V", at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/client/renderer/accessory/model/GlovesModel;renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V", ordinal = 0), cancellable = true)
-    private void render(ItemStack stack, SlotContext slotContext, PoseStack poseStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource buffer, int packedLight, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci, @Local(ordinal = 0) GlovesModel model, @Local VertexConsumer vertexConsumer) {
-        if (stack.is(AetherItems.PHOENIX_GLOVES.get()) && EmissivityConfig.CLIENT.emissive_phoenix_armor.get()) {
-            model.renderToBuffer(poseStack, vertexConsumer, LightTexture.pack(15, 15), OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-            ci.cancel();
+    @WrapOperation(method = "render(Lnet/minecraft/world/item/ItemStack;Lio/wispforest/accessories/api/slot/SlotReference;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/model/EntityModel;Lnet/minecraft/client/renderer/MultiBufferSource;IFFFFFF)V", at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/client/renderer/accessory/model/GlovesModel;renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;III)V"))
+    private void render(GlovesModel instance, PoseStack poseStack, VertexConsumer consumer, int light, int overlay, int color, Operation<Void> original, @Local(argsOnly = true) ItemStack itemStack) {
+        if (itemStack.is(AetherItems.PHOENIX_GLOVES.get()) && EmissivityConfig.CLIENT.emissive_phoenix_armor.get()) {
+            original.call(instance, poseStack, consumer, LightTexture.pack(15, 15), overlay, color);
+        } else {
+            original.call(instance, poseStack, consumer, light, overlay, color);
         }
     }
 
-    @ModifyVariable(method = "renderFirstPerson", at = @At(value = "HEAD"), remap = false, argsOnly = true)
-    private int renderFirstPerson(int combinedLight, @Local ItemStack itemStack) {
+    @WrapOperation(method = "renderFirstPerson(Lnet/minecraft/world/item/ItemStack;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lnet/minecraft/world/entity/HumanoidArm;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/geom/ModelPart;render(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;III)V"))
+    private void renderFirstPerson(ModelPart instance, PoseStack poseStack, VertexConsumer consumer, int light, int overlay, int color, Operation<Void> original, @Local(argsOnly = true) ItemStack itemStack) {
         if (itemStack.is(AetherItems.PHOENIX_GLOVES.get()) && EmissivityConfig.CLIENT.emissive_phoenix_armor.get()) {
-            return LightTexture.pack(15, 15);
+            original.call(instance, poseStack, consumer, LightTexture.pack(15, 15), overlay, color);
+        } else {
+            original.call(instance, poseStack, consumer, light, overlay, color);
         }
-        return combinedLight;
     }
 }

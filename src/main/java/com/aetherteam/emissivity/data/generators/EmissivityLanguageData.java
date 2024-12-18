@@ -11,6 +11,13 @@ public class EmissivityLanguageData extends NitrogenLanguageProvider {
 
     @Override
     protected void addTranslations() {
+        this.addConfig("title", "Emissivity Configuration");
+        this.addConfig("section.aether_emissivity.client.toml", "Client Settings");
+        this.addConfig("section.aether_emissivity.client.toml.title", "Emissivity Client Configuration");
+
+        this.addConfig("Emissives", "Emissives");
+        this.addConfig("Emissives.tooltip", "Config options for emissives");
+
         this.addClientConfig("emissives", "emissive_sentry_boots", "Enables emissivity for Sentry Boots");
         this.addClientConfig("emissives", "emissive_phoenix_armor", "Enables emissivity for Phoenix Armor");
         this.addClientConfig("emissives", "emissive_shield_of_repulsion", "Enables emissivity for the Shield of Repulsion");

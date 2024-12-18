@@ -8,6 +8,8 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.PackLocationInfo;
+import net.minecraft.server.packs.PackSelectionConfig;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
@@ -18,10 +20,13 @@ import net.minecraft.util.InclusiveRange;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import org.slf4j.Logger;
@@ -36,10 +41,14 @@ public class Emissivity {
     public static final String MODID = "aether_emissivity";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public Emissivity(IEventBus bus, Dist dist) {
+    public Emissivity(ModContainer mod, IEventBus bus, Dist dist) {
         bus.addListener(this::dataSetup);
         bus.addListener(this::packSetup);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, EmissivityConfig.CLIENT_SPEC);
+        mod.registerConfig(ModConfig.Type.CLIENT, EmissivityConfig.CLIENT_SPEC);
+
+        if (dist == Dist.CLIENT) {
+            mod.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        }
     }
 
     public void dataSetup(GatherDataEvent event) {
@@ -66,15 +75,12 @@ public class Emissivity {
             Path resourcePath = ModList.get().getModFileById(Emissivity.MODID).getFile().findResource("packs/model_override");
             PackMetadataSection metadata = new PackMetadataSection(Component.literal(""), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
             event.addRepositorySource((source) ->
-                source.accept(Pack.create(
-                    "builtin/emissivity_model_override",
-                    Component.literal(""),
-                    true,
-                    new PathPackResources.PathResourcesSupplier(resourcePath, true),
-                    new Pack.Info(metadata.description(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), true),
-                    Pack.Position.TOP,
-                    false,
-                    PackSource.BUILT_IN)
+                source.accept(new Pack(
+                        new PackLocationInfo("builtin/emissivity_model_override", Component.literal(""), PackSource.BUILT_IN, Optional.empty()),
+                        new PathPackResources.PathResourcesSupplier(resourcePath),
+                        new Pack.Metadata(metadata.description(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), true),
+                        new PackSelectionConfig(true, Pack.Position.TOP, false)
+                        )
                 )
             );
         }

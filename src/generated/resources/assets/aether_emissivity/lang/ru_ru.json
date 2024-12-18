@@ -1,0 +1,6 @@
+{
+  "config.aether_emissivity.client.emissives.emissive_phoenix_armor": "Увеличивает свечение брони Феникса",
+  "config.aether_emissivity.client.emissives.emissive_sentry_boots": "Добавляет свечение для сапог Сторожевого",
+  "config.aether_emissivity.client.emissives.emissive_shield_of_repulsion": "Увеличивает свечение для щита отталкивания",
+  "pack.aether_emissivity.mod.description": "Эфир: Ресурсы свечения"
+}

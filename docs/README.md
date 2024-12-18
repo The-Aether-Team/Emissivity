@@ -110,3 +110,14 @@ If you're wanting to create a gameplay video/review, extension or addon, parody,
 If you are thinking about using Emissivity's project code or assets, please note our licensing. **All assets of Emissivity are unlicensed and all rights are reserved to them by The Aether Team and their respective authors.** The source code of Emissivity is under the LGPL v3.0 license.
 
 If you have a reason that you wish to use our brand or any unlicensed material, please [get in contact with Oz#1986 on the Aether Community Discord](https://discord.gg/aethermod) for details.
+
+
+## :star2: Special mentions
+### :speech_balloon: Translations
+
+Emissivity is available in these languages thanks to the following contributors:
+
+| Language | Locale  | Translators |
+|----------|---------|-------------|
+| Russian  | (ru_ru) | mpustovoi   |
+|

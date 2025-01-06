@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether:textures/item/materials/ambrosium_shard.png",
+        "emissive": true
+    }
+}

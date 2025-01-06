@@ -1,12 +1,15 @@
 package com.aetherteam.emissivity;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aetherfabric.events.AddPackFindersEvent;
 import com.mojang.logging.LogUtils;
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.client.ConfigScreenFactoryRegistry;
 import fuzs.forgeconfigapiport.fabric.impl.core.NeoForgeConfigRegistryImpl;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.SharedConstants;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackSelectionConfig;
@@ -36,6 +39,27 @@ public class Emissivity implements ClientModInitializer {
         NeoForgeConfigRegistryImpl.INSTANCE.register(MODID, ModConfig.Type.CLIENT, EmissivityConfig.CLIENT_SPEC);
 
         ConfigScreenFactoryRegistry.INSTANCE.register(MODID, ConfigurationScreen::new);
+
+        BlockRenderLayerMap.INSTANCE.putBlocks(
+                RenderType.cutout(),
+                AetherBlocks.LIGHT_ANGELIC_STONE.get(),
+                AetherBlocks.LOCKED_LIGHT_ANGELIC_STONE.get(),
+                AetherBlocks.TRAPPED_LIGHT_ANGELIC_STONE.get(),
+                AetherBlocks.BOSS_DOORWAY_LIGHT_ANGELIC_STONE.get(),
+                AetherBlocks.TREASURE_DOORWAY_LIGHT_ANGELIC_STONE.get(),
+                AetherBlocks.LIGHT_HELLFIRE_STONE.get(),
+                AetherBlocks.LOCKED_LIGHT_HELLFIRE_STONE.get(),
+                AetherBlocks.TRAPPED_LIGHT_HELLFIRE_STONE.get(),
+                AetherBlocks.BOSS_DOORWAY_LIGHT_HELLFIRE_STONE.get(),
+                AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE.get(),
+                AetherBlocks.SENTRY_STONE.get(),
+                AetherBlocks.LOCKED_SENTRY_STONE.get(),
+                AetherBlocks.TRAPPED_SENTRY_STONE.get(),
+                AetherBlocks.BOSS_DOORWAY_SENTRY_STONE.get(),
+                AetherBlocks.TREASURE_DOORWAY_SENTRY_STONE.get(),
+                AetherBlocks.SUN_ALTAR.get(),
+                AetherBlocks.AMBROSIUM_ORE.get()
+        );
     }
 
     //    public void dataSetup(GatherDataEvent event) {

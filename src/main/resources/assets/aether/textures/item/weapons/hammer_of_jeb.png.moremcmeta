@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/item/weapons/hammer_of_jeb_overlay.png",
+        "emissive": true
+    }
+}

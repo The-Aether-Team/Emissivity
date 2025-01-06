@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/block/utility/sun_altar_top_overlay.png",
+        "emissive": true
+    }
+}

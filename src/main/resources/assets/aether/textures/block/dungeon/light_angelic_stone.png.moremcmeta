@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/block/dungeon/light_angelic_stone_overlay.png",
+        "emissive": true
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether:textures/block/construction/ambrosium_block.png",
+        "emissive": true
+    }
+}

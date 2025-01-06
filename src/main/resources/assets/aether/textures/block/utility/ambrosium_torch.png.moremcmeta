@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/block/utility/ambrosium_torch_overlay.png",
+        "emissive": true
+    }
+}

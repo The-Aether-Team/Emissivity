@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/item/armor/sentry_boots_overlay.png",
+        "emissive": true
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/block/natural/ambrosium_ore_overlay.png",
+        "emissive": true
+    }
+}

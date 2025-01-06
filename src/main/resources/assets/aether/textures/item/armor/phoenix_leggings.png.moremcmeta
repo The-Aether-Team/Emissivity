@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether:textures/item/armor/phoenix_leggings.png",
+        "emissive": true
+    }
+}

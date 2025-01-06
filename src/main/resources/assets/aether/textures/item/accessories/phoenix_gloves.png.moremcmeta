@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether:textures/item/accessories/phoenix_gloves.png",
+        "emissive": true
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/block/dungeon/sentry_stone_overlay.png",
+        "emissive": true
+    }
+}

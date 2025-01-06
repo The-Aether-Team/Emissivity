@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/block/dungeon/light_hellfire_stone_overlay.png",
+        "emissive": true
+    }
+}

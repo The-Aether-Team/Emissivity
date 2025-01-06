@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether:textures/item/miscellaneous/aether_portal_frame.png",
+        "emissive": true
+    }
+}

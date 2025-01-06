@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/item/accessories/shield_of_repulsion_overlay.png",
+        "emissive": true
+    }
+}

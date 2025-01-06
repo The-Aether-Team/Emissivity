@@ -3,7 +3,6 @@
   "package": "com.aetherteam.emissivity.mixin.mixins",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "aether_emissivity.refmap.json",
   "mixins": [
     "client.accessor.HumanoidArmorLayerAccessor"
   ],

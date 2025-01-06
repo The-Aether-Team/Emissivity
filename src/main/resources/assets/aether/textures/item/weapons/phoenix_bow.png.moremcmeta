@@ -1,0 +1,6 @@
+{
+    "overlay": {
+        "texture": "aether_emissivity:textures/item/weapons/phoenix_bow_overlay.png",
+        "emissive": true
+    }
+}

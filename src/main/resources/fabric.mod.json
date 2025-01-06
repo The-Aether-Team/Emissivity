@@ -32,6 +32,8 @@
     "fabricloader": "${fabric_loader_version_range}",
     "minecraft": "${minecraft_version_range}",
     "java": ">=21",
-    "fabric-api": "${fabric_version_range}"
+    "fabric-api": "${fabric_version_range}",
+    "moremcmeta": "*",
+    "moremcmeta_emissive_plugin": "*"
   }
 }

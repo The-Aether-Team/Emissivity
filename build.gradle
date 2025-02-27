@@ -154,6 +154,8 @@ curseforge {
             displayName = "${project.mod_name} - ${version}"
             relations {
                 requiredDependency "aether"
+                requiredDependency "moremcmeta-fabric"
+                requiredDependency "moremcmeta-emissive-fabric"
             }
         }
     }
@@ -171,5 +173,7 @@ modrinth {
     loaders = ["fabric"]
     dependencies {
         required.version "aether", "${project.aether_version}"
+        required.project "moremcmeta"
+        required.project "moremcmeta-emissive"
     }
 }

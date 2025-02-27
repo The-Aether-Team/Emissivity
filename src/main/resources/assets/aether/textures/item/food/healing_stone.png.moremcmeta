@@ -1,6 +1,6 @@
 {
     "overlay": {
-        "texture": "aether_emissivity:textures/item/armor/healing_stone_overlay.png",
+        "texture": "aether_emissivity:textures/item/food/healing_stone_overlay.png",
         "emissive": true
     }
 }

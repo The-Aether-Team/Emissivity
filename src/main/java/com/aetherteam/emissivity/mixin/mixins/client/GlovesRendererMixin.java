@@ -28,7 +28,7 @@ public class GlovesRendererMixin<T extends LivingEntity, M extends HumanoidModel
         }
     }
 
-    @WrapOperation(method = "renderFirstPerson(Lnet/minecraft/world/item/ItemStack;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lnet/minecraft/world/entity/HumanoidArm;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/geom/ModelPart;render(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;III)V"))
+    @WrapOperation(method = "renderFirstPerson(Lnet/minecraft/world/item/ItemStack;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lnet/minecraft/client/model/HumanoidModel;Lnet/minecraft/world/entity/HumanoidArm;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/geom/ModelPart;render(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;III)V"))
     private void renderFirstPerson(ModelPart instance, PoseStack poseStack, VertexConsumer consumer, int light, int overlay, int color, Operation<Void> original, @Local(argsOnly = true) ItemStack itemStack) {
         if (itemStack.is(AetherItems.PHOENIX_GLOVES.get()) && EmissivityConfig.CLIENT.emissive_phoenix_armor.get()) {
             original.call(instance, poseStack, consumer, LightTexture.pack(15, 15), overlay, color);

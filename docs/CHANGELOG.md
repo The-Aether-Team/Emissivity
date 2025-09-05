@@ -1,3 +1,7 @@
+# Emissivity - Fabric - 1.21.1-1.0.2
+
+- Fix server crash
+
 # Emissivity - Fabric - 1.21.1-1.0.1
 
 - Fix issue with The Aether 1.5.8

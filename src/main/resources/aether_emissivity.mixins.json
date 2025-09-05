@@ -2,14 +2,14 @@
   "required": true,
   "package": "com.aetherteam.emissivity.mixin.mixins",
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "client.accessor.HumanoidArmorLayerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
+    "client.accessor.HumanoidArmorLayerAccessor",
     "client.GlovesRendererMixin",
     "client.HumanoidArmorLayerMixin",
     "client.ShieldOfRepulsionRendererMixin"
